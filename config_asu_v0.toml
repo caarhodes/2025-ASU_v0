@@ -16,11 +16,11 @@
 # This is the text that will be shown on the first page
 [consent]
 
-intro_and_consent = """## Welcome to our the first appraisals exploration study bot.
+intro_and_consent = """## Welcome to our the first ASU exploration study bot.
 
-In this task you’re going to engage with a prototype chatbot that asks you to think about a challenging experience you've gone through recently. \
+In this task you’re going to report on your experiences attempting the home practice in between sessions. 
 
-Please do not share any information that can be used to identify you or anyone else.
+Please do not share any personal information that can be used to identify you or anyone else.
 
 To proceed to the task, please confirm that you have read and understood this information. 
 
