@@ -466,8 +466,9 @@ def reviewData(testing):
     ## assuming no scenario has been selected 
     if st.session_state['scenario_selection'] == '0':
         # setting up space for the scenarios 
-        col1, col2, col3 = st.columns(3)
-        
+        # col1, col2, col3 = st.columns(3)
+        col1 = st.columns(1)
+
         ## check if we had any feedback before:
         ## set up a dictionary:
         disable = {
@@ -503,37 +504,37 @@ def reviewData(testing):
                         )
             )
 
-        with col2: 
-            st.header("Summary 2") 
-            st.write(st.session_state.response_2['output_scenario'])
-            col2_fb = streamlit_feedback(
-                feedback_type="thumbs",
-                optional_text_label="[Optional] Please provide an explanation",
-                align='center',
-                key="col2_fb",
-                # this ensures that feedback cannot be submitted twice 
-                disable_with_score = disable['col2_fb'],            
-                on_submit = collectFeedback,
-                args = ('col2', 
-                        st.session_state.response_2['output_scenario']
-                        )
-            )        
+        # with col2: 
+        #     st.header("Summary 2") 
+        #     st.write(st.session_state.response_2['output_scenario'])
+        #     col2_fb = streamlit_feedback(
+        #         feedback_type="thumbs",
+        #         optional_text_label="[Optional] Please provide an explanation",
+        #         align='center',
+        #         key="col2_fb",
+        #         # this ensures that feedback cannot be submitted twice 
+        #         disable_with_score = disable['col2_fb'],            
+        #         on_submit = collectFeedback,
+        #         args = ('col2', 
+        #                 st.session_state.response_2['output_scenario']
+        #                 )
+        #     )        
         
-        with col3: 
-            st.header("Summary 3") 
-            st.write(st.session_state.response_3['output_scenario'])
-            col3_fb = streamlit_feedback(
-                feedback_type="thumbs",
-                optional_text_label="[Optional] Please provide an explanation",
-                align='center',
-                key="col3_fb",
-                # this ensures that feedback cannot be submitted twice 
-                disable_with_score = disable['col3_fb'],            
-                on_submit = collectFeedback,
-                args = ('col3', 
-                        st.session_state.response_3['output_scenario']
-                        )
-            )   
+        # with col3: 
+        #     st.header("Summary 3") 
+        #     st.write(st.session_state.response_3['output_scenario'])
+        #     col3_fb = streamlit_feedback(
+        #         feedback_type="thumbs",
+        #         optional_text_label="[Optional] Please provide an explanation",
+        #         align='center',
+        #         key="col3_fb",
+        #         # this ensures that feedback cannot be submitted twice 
+        #         disable_with_score = disable['col3_fb'],            
+        #         on_submit = collectFeedback,
+        #         args = ('col3', 
+        #                 st.session_state.response_3['output_scenario']
+        #                 )
+        #     )   
 
 
         ## now we should have col1, col2, col3 with text available -- let's set up the infrastructure for selection. 
@@ -549,18 +550,19 @@ def reviewData(testing):
 
 
         ## if we haven't selected scenario, let's give them a choice. 
-        st.chat_message("ai").write("Please have a look at the scenarios above. Use the 👍 and 👎  to leave a rating and short comment on each of the scenarios. Then pick the one that you like the most to continue. ")
+        st.chat_message("ai").write("Please have a look at the scenario above. Use the 👍 and 👎  to leave a rating and short comment. Then pick the one that you like the most to continue. ")
      
-        b1,b2,b3 = st.columns(3)
+        # b1,b2,b3 = st.columns(3)
+        b1 = st.columns(1)
         # set up the popover buttons 
         p1 = b1.popover('Pick scenario 1', use_container_width=True)
-        p2 = b2.popover('Pick scenario 2', use_container_width=True)
-        p3 = b3.popover('Pick scenario 3', use_container_width=True)
+        # p2 = b2.popover('Pick scenario 2', use_container_width=True)
+        # p3 = b3.popover('Pick scenario 3', use_container_width=True)
 
         # and now initialise them properly
         scenario_selection(p1,'1', st.session_state.response_1['output_scenario']) 
-        scenario_selection(p2,'2',st.session_state.response_2['output_scenario']) 
-        scenario_selection(p3,'3',st.session_state.response_3['output_scenario']) 
+        # scenario_selection(p2,'2',st.session_state.response_2['output_scenario']) 
+        # scenario_selection(p3,'3',st.session_state.response_3['output_scenario']) 
     
     
     ## and finally, assuming we have selected a scenario, let's move into the final state!  Note that we ensured that the screen is free for any new content now as people had to click to select a scenario -- streamlit is starting with a fresh page 

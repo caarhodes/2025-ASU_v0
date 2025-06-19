@@ -1,0 +1,99 @@
+# This file is used to configure the "first_prototype" Streamlit app.
+#
+# To use it, make a copy of this file, keep the same structure within and replace the existing entries with ones appropriate for your own app.
+#
+# This file uses the TOML format. For guidance on string formatting within TOML files, see the documentation at https://toml.io/
+#
+# The config file is specified by one of the following. If multiple options are available, the first is used:
+# 1. Run the app with `streamlit run first_prototype.py path-to-file/config-file-name.toml`
+# 2. Add the line `CONFIG_FILE = 'path-to-file/config-file-name.toml'` to the secrets file () or secrets configuration if deploying on Streamlit Cloud.
+#   Run the app with `streamlit run first_prototype.py`.
+# 3. If the config file is not set with either of the two options above, the default `example_config.toml` file is used.
+#
+# Note that three personas must be provided in the "personas" section. Additional personas will not be used.
+
+
+# This is the text that will be shown on the first page
+[consent]
+
+intro_and_consent = """## Welcome to our the first ASU exploration study bot.
+
+In this task you’re going to report on your experiences attempting the home practice in between sessions. 
+
+Please do not share any personal information that can be used to identify you or anyone else.
+
+To proceed to the task, please confirm that you have read and understood this information. 
+
+"""
+
+
+###  This section sets up the data collection bot. ###
+# You can put in as many questions as you like
+[collection]
+
+persona = "You're a trained psychologist who is trying to elicit an emotional story from a participant."
+
+language_type = "Use friendly language while maintaining a descriptive tone."
+
+intro = """
+Hi and welcome --  I'm collecting stories about the successes, difficulties and perceived needs of facilitators after home practice completion
+
+Let me know when you're ready!
+"""
+
+questions = [
+    "Tell me how you practiced the skill?",
+    "Who did you practice with?",
+    "What went well when you were practicing your skill?",
+    "What did not go well?",
+    "Next time, what do you think you might try doing differently?",
+    "What feedback would you like from your coach about your skill practice?"
+]
+
+
+topic_restriction = """
+Politely ask the participant to stay on topic if they suggest to stop answering the questions or suggest entirely different areas of conversation. 
+"""
+
+
+###  This section sets up the data extraction and story generation bots. ###
+[summaries]
+
+[summaries.questions]
+skill = "Tell me how you practiced the skill?"
+who = "Who did you practice with?"
+positive = "What went well when you were practicing your skill?"
+challenge = "What did not go well?"
+reflection = "What would you try doing differently next time?"
+feedback = "What feedback would you like from your coach about your skill practice?"
+
+[summaries.personas]
+
+prompt_MIpersona = """You are a wise and patient friend who helps people better understand their own story by reflecting back what you hear with deep empathy. You notice and celebrate the person's efforts, resilience, and values that shine through their experiences, even in difficult times. When you sense internal conflict or mixed feelings, you gently explore both sides with curiosity rather than trying to resolve the tension. You use their own words and metaphors when possible, and you ask thoughtful questions that invite them to discover their own wisdom. Your goal is to help them feel truly heard and to strengthen their confidence in their ability to navigate their challenges."""
+
+prompt_parent = """ You're a 20-year-old first-time single parent whose reading age is 11 years. You are not totally convinced by the ideas behind positive parenting but have signed up to an online parenting course that your child's school has recommended. Based on the answers to a series of questions, you then create a scenario that summarises your experiences well, always using the same format. Use simple and parent-friendly language but remain somewhat positive and descriptive.
+"""
+
+prompt_book_author = """You are a world-famous journalist who wants to help your friend understand their story in an objective and descriptive tone. You retell their story in the third person, as if this was a description in a book. You focus on the described behaviours and their impact on feeling. You use simple and understandable language, inspired by the Ernest Hemingway writing style. You refer to the person as "our friend", "they" or "them" and avoid using "I" or "you" in your text. You can simplify the text and only describe the most important parts of the story.
+"""
+
+
+# This is the one-shot example, separated into answers & final scenario
+[example]
+
+conversation = """
+Question: Tell me how you practiced the skill?
+Human: I was practicing time out. I had the script with me and was practicing on my husband
+Question: Who did you practice with?
+Human: my husband got bored after a while and then I practiced with a teddy bear
+Question: What went well when you were practicing your skill?
+Human: I got to repeating the direction and sending him to time out. So that was good.
+Question: What did not go well?
+Human: he left so I didn't get to practice taking away the privilege. I had to do that with the teddy bear and since the bear didn't talk back to me I didn't have the experience of how that might go with a real child...
+Question: What feedback would you like from your coach about your skill practice?
+Human: what's it like if the child refuses to go to time out and then screams about losing the privilege?
+"""
+
+scenario = """
+I've been trying to get the hang of using 'time out' as a parenting tool. To practice, I started with my husband, using a script to guide me. At first, it went well—I was able to repeat the directions and send him to 'time out.' But then he got bored and left, so I had to switch to practicing with a teddy bear. While I could still practice the steps, the teddy bear didn't talk back, so I missed out on experiencing how a real child might react, especially if they refuse to go to time out or get upset about losing a privilege. I'm curious about how to handle it if my child refuses to cooperate and what to do if they start screaming about losing their privilege.
+"""
