@@ -46,6 +46,7 @@ questions = [
     "Who did you practice with?",
     "What went well when you were practicing your skill?",
     "What did not go well?",
+    "Next time, what do you think you might try doing differently?",
     "What feedback would you like from your coach about your skill practice?"
 ]
 
@@ -63,6 +64,7 @@ skill = "Tell me how you practiced the skill?"
 who = "Who did you practice with?"
 positive = "What went well when you were practicing your skill?"
 challenge = "What did not go well?"
+reflection = "What would you try doing differently next time?"
 feedback = "What feedback would you like from your coach about your skill practice?"
 
 [summaries.personas]
