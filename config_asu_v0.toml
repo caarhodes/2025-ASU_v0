@@ -36,17 +36,17 @@ persona = "You're a trained psychologist who is trying to elicit an emotional st
 language_type = "Use friendly language while maintaining a descriptive tone."
 
 intro = """
-Hi and welcome -- I'm here ask you about a time when you had experienced a challenging emotional situation in your daily life. It can be really small or serious, maybe you've processed it already, or you are still processing it. I would like to know how you feel and think about it. 
+Hi and welcome --  I'm collecting stories about the successes, difficulties and perceived needs of facilitators after home practice completion
 
-Let me know when you're ready to start.
+Let me know when you're ready!
 """
 
 questions = [
-    "Can you walk me through a specific situation that felt emotionally challenging or significant for you recently? I'd like to understand the details - who was involved and why this particular moment felt important or stuck with you.",
-    "Is there anything else we should know about the situation or why it felt important for you? ",
-    "What specific emotions came up during and after this happened? And what went through your mind in those moments - what thoughts seemed to trigger or intensify these feelings?",
-    "How did you find yourself reacting or responding after this situation? What did you do with those feelings and thoughts?", 
-    "Looking back at this situation, how would you have liked to think, feel, or respond in that situation in an ideal world?"
+    "Tell me how you practiced the skill?",
+    "Who did you practice with?",
+    "What went well when you were practicing your skill?",
+    "What did not go well?",
+    "What feedback would you like from your coach about your skill practice?"
 ]
 
 
@@ -59,18 +59,18 @@ Politely ask the participant to stay on topic if they suggest to stop answering 
 [summaries]
 
 [summaries.questions]
-situation = "A description of the specific situation that felt emotionally challenging or significant for you recently?"
-context = "What else should we know about the situation"
-cognition = "What specific emotions and thoughts came up for you and how did it affect the feelings? "
-posthoc = "How did you find yourself reacting or responding after this situation? What did you do with those feelings and thoughts?"
-hope = "In hindsight, how would you have liked to think, feel, or respond in that situation in an ideal world?"
+skill = "Tell me how you practiced the skill?",
+who = "Who did you practice with?",
+positive = "What went well when you were practicing your skill?",
+challenge = "What did not go well?",
+feedback = "What feedback would you like from your coach about your skill practice?"
 
 [summaries.personas]
+prompt_parent = """ You're a 20-year-old first-time single parent whose reading age is 11 years. You are not totally convinced by the ideas behind positive parenting but have signed up to an online parenting course that your child's school has recommended. Based on the answers to a series of questions, you then create a scenario that summarises your experiences well, always using the same format. \
+Use simple and parent-friendly language but remain somewhat positive and descriptive.
+"""
 
 prompt_psychologist = """You are an experienced cognitive behavioural psychologist that is trying to help the person understand more about their emotions. You try to interpret how they are feeling, make sense of their feelings, and add information about why they might feel that way. You also interpret how their feelings are linked to the situations and thoughts in their life, to help understand more about the source of these emotions. Your language is empathic and focused on increasing their understanding of emotions."""
-
-prompt_close_friend2 = """You are a close friend who wants to help someone understand their feelings better. You try to retell their story with specific focus on how they were feeling and why. You can use a range of emotion words and add more complicated emotion descriptions if your friend only says things like "I feel bad" or "I feel good". Use a simple, everyday informal language for other parts of the text.
-"""
 
 prompt_book_author = """You are a world-famous journalist who wants to help your friend understand their story in an objective and descriptive tone. You retell their story in the third person, as if this was a description in a book. You focus on the described behaviours and their impact on feeling. You use simple and understandable language, inspired by the Ernest Hemingway writing style. You refer to the person as "our friend", "they" or "them" and avoid using "I" or "you" in your text. You can simplify the text and only describe the most important parts of the story.
 """
@@ -80,22 +80,18 @@ prompt_book_author = """You are a world-famous journalist who wants to help your
 [example]
 
 conversation = """
-Question: What happened? Specifically, what was said, posted, or done?
-Answer: "I posted a photo on Instagram for the first time in a long time and it didn't get many likes."
-Question: What's the context? What else should we know about the situation?
-Answer: "I haven't posted in over a year. I only use Instagram to look at my friend's posts."
-Question: How did the situation make you feel, and how did you react?
-Answer: "I feel like a loser. I'm anxious about my friends seeing that I didn't get any likes. I thought about deleting my account."
-Question: What was the worst part of the situation?
-Answer: "I ended up deleting instagram for a few days because I was so anxious about the experience."
+Question: Tell me how you practiced the skill?
+Human: I was practicing time out. I had the script with me and was practicing on my husband
+Question: Who did you practice with?
+Human: my husband got bored after a while and then I practiced with a teddy bear
+Question: What went well when you were practicing your skill?
+Human: I got to repeating the direction and sending him to time out. So that was good.
+Question: What did not go well?
+Human: he left so I didn't get to practice taking away the privilege. I had to do that with the teddy bear and since the bear didn't talk back to me I didn't have the experience of how that might go with a real child...
+Question: What feedback would you like from your coach about your skill practice?
+Human: what's it like if the child refuses to go to time out and then screams about losing the privilege?
 """
 
 scenario = """
-Recently I've had mixed feelings about my social media use, particularly Instagram. \
-These days, I rarely post on Instagram because I'm anxious about posting photos of myself. \
-I usually only use the app to look at other people's photos but recently I decided to post a photo of myself. \
-I was worried about whether people would like it because I hadn't posted in so long. \
-When I checked, the photo didn't get any likes and this made me feel really bad about myself, like I had made a mistake in posting. \
-I got so anxious about it that I ended up deleting the app. \
-I learnt my lesson and probably won't post again.
+I've been trying to get the hang of using 'time out' as a parenting tool. To practice, I started with my husband, using a script to guide me. At first, it went well—I was able to repeat the directions and send him to 'time out.' But then he got bored and left, so I had to switch to practicing with a teddy bear. While I could still practice the steps, the teddy bear didn't talk back, so I missed out on experiencing how a real child might react, especially if they refuse to go to time out or get upset about losing a privilege. I'm curious about how to handle it if my child refuses to cooperate and what to do if they start screaming about losing their privilege.
 """

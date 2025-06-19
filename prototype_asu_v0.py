@@ -46,8 +46,8 @@ DEBUG = False
 smith_client = Client()
 
 
-st.set_page_config(page_title="Data Donation research study", page_icon="📖")
-st.title("📖 Data Donation research study")
+st.set_page_config(page_title="Make Abi happy research study", page_icon="📖")
+st.title("📖 Make Abi happy research study")
 
 
 ## initialising key variables in st.sessionstate if first run
