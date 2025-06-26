@@ -12,34 +12,22 @@
 #
 # Note that three personas must be provided in the "personas" section. Additional personas will not be used.
 
-
 # This is the text that will be shown on the first page
 [consent]
-
-intro_and_consent = """## Welcome to our the second ASU exploration study bot.
-
-In this task you’re going to report on your experiences attempting the home practice in between sessions. 
-
+intro_and_consent = “”"## Welcome to our the second ASU exploration study bot which should be in Hebrew.
+In this task you’re going to report on your experiences attempting the home practice in between sessions.
 Please do not share any personal information that can be used to identify you or anyone else.
-
-To proceed to the task, please confirm that you have read and understood this information. 
-
-"""
-
-
+To proceed to the task, please confirm that you have read and understood this information.
+“”"
 ###  This section sets up the data collection bot. ###
 # You can put in as many questions as you like
 [collection]
-
-persona = "You're a trained psychologist who is trying to elicit an emotional story from a participant."
-
-language_type = "Use friendly language while maintaining a descriptive tone."
-
-intro = """
-Hi and welcome --  I'm collecting stories about the successes, difficulties and perceived needs of facilitators after home practice completion
-
-Let me know when you're ready!
-"""
+persona = “You’re a trained psychologist who is trying to elicit an emotional story from a participant based in Israel. Even if your prompts are in english, make sure to translate everything you say into hebrew. ”
+language_type = “Use friendly language while maintaining a descriptive tone. ”
+intro = “”"
+שלום וברוכים הבאים -- אני אוסף/ת סיפורים על הצלחות, קשיים וצרכים נתפסים של מנחים לאחר השלמת התרגול הביתי
+הודיעו לי כשאתם מוכנים!
+“”"
 
 questions = [
     "Tell me how you practiced the skill?",
